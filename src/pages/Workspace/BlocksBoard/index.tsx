@@ -26,8 +26,6 @@ const BlocksBoard = () => {
 
     // check the screen dimensions to make the blocks responsive
     useEffect(() => {
-        updateContainerSize();
-
         const observer = new ResizeObserver(updateContainerSize);
         if (workspaceRef.current) observer.observe(workspaceRef.current);
 
