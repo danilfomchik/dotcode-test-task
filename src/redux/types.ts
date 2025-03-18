@@ -4,4 +4,5 @@ export interface PreloadedState {
 
 export enum SliceNames {
     blocksSlice = 'blocksData',
+    transactionsSlice = 'transactionsData',
 }

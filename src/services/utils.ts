@@ -1,3 +1,5 @@
+import {TBitcoinTransaction} from '@/pages/Transactions/types';
+
 import {TBlock, TBlockPositions, TBlockSizes} from './types';
 
 export const convertToPercents = (newBlockData: TBlockPositions, containerSize: TBlockSizes) => {
@@ -16,3 +18,7 @@ export const convertToPixels = (block: TBlock, containerSize: TBlockSizes) => ({
     width: (block.width / 100) * containerSize.width,
     height: (block.height / 100) * containerSize.height,
 });
+
+export const getTransactionsSum = (transaction: TBitcoinTransaction) => {
+    return transaction.out.reduce((sum, output) => sum + output.value, 0) / 1e8;
+};

@@ -6,8 +6,8 @@ import MainLayout from '@/layouts/MainLayout';
 import NotFound from '@/pages/NotFound';
 import {RouterPaths} from '@/services/types';
 
-const Transactions = lazy(() => import('@/pages/Transactions'));
-const Workspace = lazy(() => import('@/pages/Workspace'));
+const Transactions = lazy(() => import('@/pages/Transactions/index'));
+const Workspace = lazy(() => import('@/pages/Workspace/index'));
 
 export const router = createBrowserRouter([
     {
