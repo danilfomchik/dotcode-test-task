@@ -2,10 +2,12 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {useDispatch} from 'react-redux';
 
 import blocksSlice from './blocks/blocksSlice';
+import transactionsSlice from './transactions/transactionsSlice';
 import {PreloadedState, SliceNames} from './types';
 
 const combinedReducer = combineReducers({
     [SliceNames.blocksSlice]: blocksSlice.reducer,
+    [SliceNames.transactionsSlice]: transactionsSlice.reducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState) => {
