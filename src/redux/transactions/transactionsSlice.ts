@@ -11,7 +11,7 @@ const reducers = {
         const transaction = action.payload;
 
         if (transaction.inputs.length > 0 && transaction.out.length > 0) {
-            state.transactions = [transaction, ...state.transactions.slice(0, 9)]; // last 10 transactions
+            state.transactions = [transaction, ...state.transactions.slice(0, 4)]; // last 5 transactions
             state.totalSum += getTransactionsSum(transaction);
         }
     },
