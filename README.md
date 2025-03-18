@@ -1,54 +1,128 @@
-# React + TypeScript + Vite
+# Strong Junior Front-End Developer Test Tasks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains two test tasks completed for a Strong Junior Front-End Developer position.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Task 1: Interactive Workspace](#task-1-interactive-workspace)
+- [Task 2: WebSocket-based Bitcoin Transactions](#task-2-websocket-based-bitcoin-transactions)
+- [Code Style Guide](#code-style-guide)
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This repository contains two separate projects:
 
-```js
-export default tseslint.config({
-    extends: [
-        // Remove ...tseslint.configs.recommended and replace with this
-        ...tseslint.configs.recommendedTypeChecked,
-        // Alternatively, use this for stricter rules
-        ...tseslint.configs.strictTypeChecked,
-        // Optionally, add this for stylistic rules
-        ...tseslint.configs.stylisticTypeChecked,
-    ],
-    languageOptions: {
-        // other options...
-        parserOptions: {
-            project: ['./tsconfig.node.json', './tsconfig.app.json'],
-            tsconfigRootDir: import.meta.dirname,
-        },
-    },
-});
+1. **Interactive Workspace** – A grid-based drag-and-resize UI for blocks.
+2. **WebSocket-based Bitcoin Transactions** – A real-time Bitcoin transaction tracker.
+
+Each project is structured as a separate module with its own logic and dependencies.
+
+## Technologies Used
+
+- React
+- TypeScript
+- Redux Toolkit
+- Tailwind CSS
+- WebSockets (Blockchain API for real-time transactions)
+- Local Storage (for state persistence in Task 1)
+
+## Installation
+
+To run the projects locally, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/danilfomchik/dotcode-test-task
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd dotcode-test-task
+    ```
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+4. Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+## Task 1: Interactive Workspace
+
+### Features:
+
+- Draggable and resizable blocks: Five blocks can be moved and resized on a grid-based layout (10px increments).
+- Z-index control: Clicking a block moves it to the front.
+- Delete functionality: Users can remove a block.
+- Reset functionality: A "Reset" button restores the initial state.
+- Persistent state: Layout is saved and restored after page refresh.
+
+### Implementation Details:
+
+- React with TypeScript for strict typing.
+- Redux for state management.
+- Local Storage for persistence.
+- React Draggable and Resizable components for interactivity using react-rnd.
+
+## Task 2: WebSocket-based Bitcoin Transactions
+
+### Features:
+
+- Real-time transaction updates using Blockchain WebSocket API.
+- Live transaction list displaying incoming Bitcoin transactions.
+- Total received transactions sum calculation.
+- Controls:
+    - "Start" button subscribes to transaction updates.
+    - "Stop" button unsubscribes but keeps the current list.
+    - "Reset" button clears the list and resets the total.
+
+### Implementation Details:
+
+- WebSockets for real-time data streaming.
+- React and Redux for UI updates and state management.
+- Efficient data handling with React useEffect and WebSocket event listeners.
+- Optimized rendering using memoization.
+
+## Code Style Guide
+
+This project follows modern front-end best practices:
+
+### General Rules
+
+- Consistent formatting using Prettier.
+- ESLint enforced rules to maintain clean code.
+- TypeScript strict mode enabled to ensure type safety.
+
+### Naming Conventions
+
+- **Components**: `PascalCase` (e.g., `TransactionList.tsx`).
+- **Functions and variables**: `camelCase` (e.g., `fetchBitcoinData`).
+- **Constants**: `UPPER_CASE_SNAKE_CASE` (e.g., `API_URL`).
+
+### Folder Structure
+
+```plaintext
+/src
+  /components  # Reusable UI components
+  /pages       # Page-level components
+  /store       # Redux store and slices
+  /utils       # Helper functions
+  /hooks       # Custom React hooks
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Best Practices
 
-```js
-// eslint.config.js
-import reactDom from 'eslint-plugin-react-dom';
-import reactX from 'eslint-plugin-react-x';
+- Use functional components and hooks.
+- Avoid unnecessary re-renders (React.memo, useCallback, useMemo).
+- Ensure accessibility (ARIA attributes, semantic HTML).
 
-export default tseslint.config({
-    plugins: {
-        // Add the react-x and react-dom plugins
-        'react-x': reactX,
-        'react-dom': reactDom,
-    },
-    rules: {
-        // other rules...
-        // Enable its recommended typescript rules
-        ...reactX.configs['recommended-typescript'].rules,
-        ...reactDom.configs.recommended.rules,
-    },
-});
-```
+---
+
+## Author
+
+Fomenko Daniil – Front-End Developer
+
+If you have any questions, feel free to reach out!
