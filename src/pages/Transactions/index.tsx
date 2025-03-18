@@ -34,9 +34,11 @@ const Transactions = () => {
         if (lastJsonMessage && lastJsonMessage.op === 'utx') {
             const transaction = lastJsonMessage.x;
 
-            dispatch(addTransaction(transaction));
+            if (isSubscribed) {
+                dispatch(addTransaction(transaction));
+            }
         }
-    }, [lastJsonMessage, dispatch]);
+    }, [isSubscribed, lastJsonMessage, dispatch]);
 
     useEffect(() => {
         return () => {
